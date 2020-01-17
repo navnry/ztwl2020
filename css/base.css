@@ -86,6 +86,7 @@ input, select, option ,textarea{
     appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     outline: none;
+    resize: none;
 }
 
 input[type="text"], input[type="button"], input[type="submit"], input[type="reset"] {
