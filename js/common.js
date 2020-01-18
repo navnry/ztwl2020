@@ -11,6 +11,9 @@ $(document).ready(function () {
             $(".driftbar").addClass("fixed")
         }
     })
+    $("img").on("mousedown",function (e) {
+        e.preventDefault()
+    })
     if ($(".banner img").length > 1) {
         new Swiper(".banner .swiper-container", {
             speed: 600,
@@ -29,8 +32,8 @@ $(document).ready(function () {
     if ($(".bigao-swiper").length > 0) {
         new Swiper(".bigao-swiper .swiper-container", {
             speed: 600,
-            slidesPerView:3,
-            spaceBetween:10,
+            slidesPerView: 3,
+            spaceBetween: 10,
             loop: true,
             autoplay: {
                 delay: 4000,
@@ -42,6 +45,28 @@ $(document).ready(function () {
             },
         })
     }
+
+    if ($(".sem-anli-tabs").length > 0) {
+        var semAnliThumbs = new Swiper('.sem-anli-tabs .swiper-container', {
+            spaceBetween: 0,
+            slidesPerView: 7,
+            speed:600,
+            freeMode: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+        });
+        var semAnliBox = new Swiper('.sem-anli-box .swiper-container', {
+            spaceBetween: 10,
+            speed:600,
+            allowTouchMove:false,
+            thumbs: {
+                swiper: semAnliThumbs
+            },
+            navigation: {
+                nextEl: '.sem-anli-tabs .swiper-button-next',
+            },
+        });
+    }
 })
 $(window).on("resize", function () {
     _navEvent()
@@ -52,30 +77,35 @@ function _navEvent() {
         return;
     }
     var len = $('#header-nav a.current').text().length;
+    var lenzr = $('#header-nav a.current').width();
     var $item = $('#header-nav a.current').parent();
     var offset = $item.offset();
     var uo = $('nav').offset();
     var $bg = $('#header-nav > .underline');
     var left = offset.left - uo.left;
+    console.log(lenzr);
     $bg.css({
-        'width': len + 'em',
+        'width': lenzr + 'px',
         'left': left + 15 + "px"
     });
 
     $('#header-nav a').hover(function () {
+
         var len2 = $(this).text().length;
+        var lenzr = $(this).width();
+
         var $item2 = $(this).parent();
         var offset2 = $item2.offset();
         var left2 = offset2.left - uo.left;
 
         $bg.css({
-            'width': len2 + 'em',
+            'width': lenzr + 'px',
             'left': left2 + 15 + "px"
         })
 
     }, function () {
         $bg.css({
-            'width': len + 'em',
+            'width': lenzr + 'px',
             'left': left + 15 + "px"
         });
     })

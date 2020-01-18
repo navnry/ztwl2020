@@ -278,6 +278,11 @@ header {
   }
 }
 
+#container {
+  position: relative;
+  z-index: 9;
+}
+
 .gray {
   background-color: #f9f9f9;
 }
@@ -572,6 +577,10 @@ footer {
       line-height: 26px;
     }
   }
+  b {
+    font-weight: normal;
+    color: @themeColor1;
+  }
   &.white {
     .cn-b, .cn-s {
       color: #fff;
@@ -736,6 +745,48 @@ footer {
       height: 100%;
       object-fit: cover;
       transition-duration: .5s;
+    }
+  }
+  .btn {
+    text-align: center;
+    font-size: 0;
+    margin-top: 40px;
+    a {
+      display: inline-block;
+      line-height: 58px;
+      background-color: #fff;
+      border-radius: 50px;
+      border: solid 1px #dcdcdc;
+      font-size: 20px;
+      color: #888;
+      padding: 0 63px;
+      position: relative;
+      overflow: hidden;
+      span {
+        position: relative;
+        z-index: 1;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: @themeColor1;
+        transition-duration: .3s;
+        transition-timing-function: ease-out;
+      }
+      &:hover {
+        color: #fff;
+        &::before {
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -1075,6 +1126,372 @@ footer {
 }
 
 .wzjs-3 {
-  background: url(../img/wzjs_lc.jpg)  center center /cover no-repeat;
+  background: url(../img/wzjs_lc.jpg) center center /cover no-repeat;
 
+}
+
+.wjlc-list {
+  li {
+    width: 200px;
+    height: 225px;
+    float: left;
+    &:nth-of-type(odd) {
+      background-color: #eee;
+    }
+    &:nth-of-type(even) {
+      background-color: #fff;
+    }
+  }
+}
+
+.wzjs-4 {
+  .right {
+    margin-top: 40px;
+  }
+  .tit {
+    font-size: 28px;
+    border-bottom: 1px solid rgba(125, 125, 125, .5);
+    padding: 20px 0 20px 35px;
+    margin-bottom: 30px;
+    background: url(../img/wjx.png) left center /30px 29px no-repeat;
+  }
+  .desc {
+    li {
+      margin-bottom: 20px;
+    }
+    p {
+      color: #666;
+      padding-left: 20px;
+      &.p1 {
+        font-size: 24px;
+        background: url(../img/yuanquan.png) left center /12px 12px no-repeat;
+      }
+      &.p2 {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.sem-1 {
+  .list {
+    text-align: center;
+    font-size: 0;
+    ul {
+      display: inline-block;
+    }
+    li {
+      float: left;
+      text-align: center;
+      margin: 0 25px;
+      .icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 8px;
+        img {
+          .coverImg();
+        }
+      }
+      .tit {
+        color: #666;
+        font-size: 16px;
+      }
+    }
+  }
+  .content {
+    height: 204px;
+    background: url(../img/sem-1_bg.png) center center no-repeat;
+    margin-top: 100px;
+    position: relative;
+
+    p {
+      position: absolute;
+      line-height: 1;
+      &.p1 {
+        left: 15px;
+        bottom: 30px;
+      }
+      &.p2 {
+        left: 145px;
+        bottom: 42px;
+      }
+      &.p3 {
+        left: 176px;
+        bottom: 146px;
+      }
+      &.p4 {
+        left: 319px;
+        bottom: 213px;
+      }
+      &.p5 {
+        left: 422px;
+        bottom: 133px;
+      }
+      &.p6 {
+        left: 453px;
+        bottom: 19px;
+      }
+      &.p7 {
+        left: 575px;
+        bottom: 130px;
+      }
+      &.p8 {
+        left: 639px;
+        bottom: 33px;
+      }
+      &.p9 {
+        left: 777px;
+        bottom: 142px;
+      }
+      &.p10 {
+        left: 803px;
+        bottom: 73px;
+      }
+      &.p11 {
+        left: 967px;
+        bottom: 91px;
+      }
+      &.p12 {
+        left: 1109px;
+        bottom: 166px;
+      }
+    }
+  }
+}
+
+.sem-2 {
+  background: url(../img/sem-2_bg.jpg) center center /cover no-repeat;
+
+  .list {
+    li {
+      width: 185px;
+      height: 210px;
+      background: url(../img/liuyuan.png) no-repeat;
+      float: left;
+      margin-right: 18px;
+      text-align: center;
+      padding: 35px 8px 0;
+      word-break: break-all;
+      &:last-child {
+        margin-right: 0;
+      }
+      .tit {
+        color: @themeColor1;
+        font-size: 24px;
+        &::after {
+          content: '';
+          display: block;
+          width: 45px;
+          height: 1px;
+          background-color: #bfbfbf;
+          margin: 8px auto;
+        }
+      }
+      .desc {
+        font-size: 14px;
+        line-height: 18px;
+        color: #888;
+      }
+    }
+  }
+}
+
+.sem-3 {
+  .list {
+    position: relative;
+    &::after{
+      position: absolute;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #eee;
+      left: 0;
+      top: 72px;
+    }
+    ul{
+      display: flex;
+      justify-content: space-between;
+    }
+    li {
+      //float: left;
+      width: 140px;
+      .tit{
+        text-align: center;
+        font-size: 24px;
+      }
+      .num {
+        width: 42px;
+        height: 42px;
+        background-color: #fff;
+        border: solid 1px #dcdcdc;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 14px;
+        color: #666;
+        margin: 15px auto;
+        position: relative;
+        z-index: 2;
+      }
+      .desc {
+        padding: 15px 10px;
+        height: 170px;
+        color: #666;
+        background-color: #eee;
+        text-align: center;
+        position: relative;
+        margin-top: 23px;
+        &::before{
+          position: absolute;
+          content: '';
+          display: block;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          .triangle(T,8px,#eee)
+        }
+      }
+
+      &:hover{
+        .tit{
+          color: @themeColor1;
+        }
+        .num{
+          background-color: @themeColor1;
+          color: #fff;
+          border-color: @themeColor1;
+        }
+        .desc{
+          color: #fff;
+          background-color: @themeColor1;
+          &::before{
+            .triangle(T,8px,@themeColor1)
+          }
+        }
+      }
+    }
+  }
+}
+
+.sem-anli-tabs {
+  position: relative;
+
+  .swiper-container {
+    width: 1110px;
+    float: left;
+    .swiper-slide {
+      height: 66px;
+      border: 1px solid rgba(238, 238, 238, .9);
+      border-left: 0;
+      cursor: pointer;
+      &:first-child {
+        border-left: 1px solid rgba(238, 238, 238, .9);
+      }
+      img {
+        position: absolute;
+        max-width: calc(~"100% - 10px");
+        max-height: calc(~"100% - 10px");
+        filter: grayscale(1);
+        opacity: .6;
+        transition-duration: .2s;
+        .centerXY();
+      }
+      &.swiper-slide-thumb-active {
+        img {
+          filter: unset;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .swiper-button-next {
+    width: 60px;
+    height: 66px;
+    background-color: @themeColor1;
+    opacity: 0.9;
+    margin: 0;
+    right: 0;
+    top: 0;
+    background-size: 17px 32px;
+    outline: none;
+  }
+}
+
+.sem-anli-box {
+  margin-top: 40px;
+  .content {
+    width: 951px;
+    height: 415px;
+    background: url(../img/sem-anli_bg.png) center center no-repeat;
+    padding: 40px 300px 40px 40px;
+    position: relative;
+
+    .sem-anli-logo {
+      height: 100px;
+      position: relative;
+      margin-bottom: 20px;
+      img {
+        position: absolute;
+        width: auto;
+        height: auto;
+        max-width: calc(~"100% - 10px");
+        max-height: calc(~"100% - 10px");
+        .centerY();
+      }
+    }
+    .sem-anli-tit {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .sem-anli-desc {
+      font-size: 16px;
+      height: 6em;
+      overflow: hidden;
+      .line-camp(4);
+    }
+    .btns {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      font-size: 0;
+      a {
+        display: inline-block;
+        height: 46px;
+        line-height: 44px;
+        border-radius: 50px;
+        padding: 0 35px;
+        font-size: 14px;
+
+        &.todetail {
+          border: solid 1px #d2d2d2;
+          margin-right: 20px;
+        }
+        &.sq {
+          background-color: @themeColor1;
+          border: solid 1px @themeColor1;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .pic-big {
+    position: absolute;
+    width: 484px;
+    height: 387px;
+    top: 27px;
+    right: 0;
+    background: url(../img/sem-anli-picb_bg.png) center center no-repeat;
+
+    .pic {
+      width: 446px;
+      height: 251px;
+      margin-top: 18px;
+      margin-left: 20px;
+      img {
+        .coverImg();
+      }
+    }
+  }
 }
